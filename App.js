@@ -19,6 +19,7 @@ export default function App() {
 
   const takePicture = async () => {
     console.log('taking picture ...')
+    console.log(await camera.current.getAvailablePictureSizesAsync())
 
     const picture = await camera.current.takePictureAsync({
       exif: true,
@@ -33,7 +34,7 @@ export default function App() {
     <CameraView
       ref={camera}
       style={{ width: "100%", height: "100%" }}
-      ratio='16:9'
+      pictureSize={'1920x1080'}
       onCameraReady={console.log}
       onMountError={console.warn}
     >
